@@ -11,8 +11,10 @@ namespace Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select MyService.svc or MyService.svc.cs at the Solution Explorer and start debugging.
     public class MyService : IMyService
     {
-        public void DoWork()
+        
+        public string DoWork(string id)
         {
+            return id;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.ServiceModel.Web;
 
 namespace Service
 {
@@ -12,6 +13,7 @@ namespace Service
     public interface IMyService
     {
         [OperationContract]
-        void DoWork();
+        [WebGet(UriTemplate = "/test/{id}", ResponseFormat = WebMessageFormat.Json)]
+        string DoWork(string id);
     }
 }

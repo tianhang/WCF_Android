@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
+
 namespace Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "MyService" in code, svc and config file together.
@@ -15,6 +16,11 @@ namespace Service
         public string DoWork(string id)
         {
             return id;
+        }
+        public Customer GetCustomer(string id)
+        {
+            return Customer.Make("123","wlliam","wc",2); 
+                //.make("123","wlliam","wc",2);
         }
     }
 }

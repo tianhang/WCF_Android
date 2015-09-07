@@ -15,5 +15,55 @@ namespace Service
         [OperationContract]
         [WebGet(UriTemplate = "/test/{id}", ResponseFormat = WebMessageFormat.Json)]
         string DoWork(string id);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/customer/{id}", ResponseFormat = WebMessageFormat.Json)]
+        Customer GetCustomer(string id);
+    }
+    [DataContract]
+    public class Customer
+    {
+        string id;
+        string name;
+        string address;
+        int credit;
+
+        public static Customer Make(string id, string name, string address, int credit)
+        {
+            Customer c = new Customer();
+            c.id = id;
+            c.name = name;
+            c.address = address;
+            c.credit = credit;
+            return c;
+        }
+
+        [DataMember]
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        [DataMember]
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        [DataMember]
+        public string Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+
+        [DataMember]
+        public int Credit
+        {
+            get { return credit; }
+            set { credit = value; }
+        }
     }
 }

@@ -19,16 +19,26 @@ namespace Service
         [OperationContract]
         [WebGet(UriTemplate = "/customer/{id}", ResponseFormat = WebMessageFormat.Json)]
         Customer GetCustomer(string id);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/post/{id}", Method = "POST",
+        RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        Customer PostCustomer(string id);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/add", Method = "POST",
+        RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        Customer AddCustomer(Customer c);
     }
-    [DataContract]
+    [DataContract] 
     public class Customer
     {
-        string id;
+        string id;  
         string name;
         string address;
-        int credit;
+        string credit;
 
-        public static Customer Make(string id, string name, string address, int credit)
+        public static Customer Make(string id, string name, string address, string credit)
         {
             Customer c = new Customer();
             c.id = id;
@@ -58,9 +68,9 @@ namespace Service
             get { return address; }
             set { address = value; }
         }
-
+        
         [DataMember]
-        public int Credit
+        public string Credit
         {
             get { return credit; }
             set { credit = value; }

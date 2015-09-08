@@ -19,8 +19,19 @@ namespace Service
         }
         public Customer GetCustomer(string id)
         {
-            return Customer.Make("123","wlliam","wc",2); 
+            return Customer.Make("123","wlliam","wc","2"); 
                 //.make("123","wlliam","wc",2);
+        }
+        public Customer PostCustomer(string id)
+        {
+            return Customer.Make("123", "wlliam", "wc", "3");
+            //.make("123","wlliam","wc",2);
+        }
+        public Customer AddCustomer(Customer c)
+        { 
+            System.Console.WriteLine(c);
+           // return c;
+            return Customer.Make("123", "wlliam", "wc", "3");
         }
     }
 }
